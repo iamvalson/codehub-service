@@ -87,7 +87,7 @@ export class AuthService {
         role: "student",
       },
       process.env.JWT_SECRET as string,
-      { expiresIn: "10m" },
+      { expiresIn: "1d" },
     );
 
     return {
@@ -118,7 +118,7 @@ export class AuthService {
     const token = jwt.sign(
       { id: user.id, email: user.email, role: "instructor" },
       process.env.JWT_SECRET as string,
-      { expiresIn: "10m" },
+      { expiresIn: "1d" },
     );
 
     return {
