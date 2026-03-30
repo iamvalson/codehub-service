@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { handleGetAssignmentsByCourse } from "../controllers/assignment.controller.js";
 import {
   handleCreateCourse,
   handleEnrollment,
@@ -36,5 +37,7 @@ courseRouter.get(
   requireRole("student"),
   handleFetchEnrolledCourses,
 );
+
+courseRouter.get("/:courseId", authenticate, handleGetAssignmentsByCourse);
 
 export default courseRouter;
